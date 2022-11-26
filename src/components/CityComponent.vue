@@ -1,13 +1,14 @@
 <script>
 export default {
-  name: "CountryComponent",
+  name: "CityComponent",
   props: [
     "name",
-    "capital",
-    "currency_name",
-    "currency",
-    "region",
-    "code",
+    "country_name",
+    "country_code",
+    "state_name",
+    "state_code",
+    "latitude",
+    "longitude",
     //TODO: crear una propiedad para determinar si al componente se le puede hacer click
   ],
 };
@@ -17,20 +18,21 @@ export default {
   Mira las rutas para ver como redirigir al usuario.-->
   <div class = "country"
     > 
-
-
+ 
+    
   <!--TODO: Poblar el HTML con las propiedades. Usar https://countryflagsapi.com/png/${code}-->
   
-  <img 
-      :src= "`https://countryflagsapi.com/png/${code}`"
-      width="200"
-      height="200"
-    />
-    <h1 class = "nombre"
-    > {{name}} </h1>
-    <h1 class = "capital"> Capital: {{capital}} </h1>
-    <h1 >  Moneda: {{currency_name}} ({{currency}}) </h1>
-    <h1 > Región: {{region}} </h1>
+  
+    <h1 class="nombre">{{ name }}</h1>
+    <h1>País: {{ country_name }} ({{ country_code }})</h1>
+    <h1>Estado: {{state_name}} ({{state_code}})</h1>
+    <h1>Lattiutd: {{latitude}}</h1>
+    <h1>Longitud: {{longitude}}</h1>
+    <img 
+      src="@/assets/city.jpg"
+      width="170"
+      height="170"
+    /> 
   </div> 
 </template>
 
@@ -43,27 +45,17 @@ export default {
   border-style: solid;
   border-radius: 5px;
   border-color: grey;
-  cursor: pointer;
 }
+
 
 .nombre{
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 2em;
+  font-size: 2.2em;
 }
-.capital{
-   overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 1.5em;
-}
-.country:hover {
-  background-color: rgb(49, 49, 49);
-  cursor: pointer;
-}
-
 h1 {
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.em;
+  font-size: 1.2em;
 }
 </style>
